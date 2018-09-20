@@ -1,6 +1,6 @@
 {
   "name": "node-auth-guard",
-  "version": "2.2.0-0",
+  "version": "2.2.0",
   "description": "Module for authorization",
   "main": "index.js",
   "scripts": {},

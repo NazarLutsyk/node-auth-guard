@@ -1,7 +1,7 @@
 #Node Auth Guard
 ###Small and flexible library for authorization
 
-````
+````javascript
 let express = require('express');
 let authGuard = require('node-auth-guard');
 let app = express();

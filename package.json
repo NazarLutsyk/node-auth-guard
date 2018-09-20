@@ -5,5 +5,12 @@
   "main": "index.js",
   "scripts": {},
   "author": "Nazar Lutsyk",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": "https://github.com/NazarLutsyk/node-auth-guard.git",
+  "keywords": [
+    "auth",
+    "authorizarion",
+    "guard",
+    "node-auth-guard"
+  ]
 }

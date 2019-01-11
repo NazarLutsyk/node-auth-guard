@@ -82,3 +82,23 @@ app.get('/',
 
 app.listen(3000);
 ````
+#### Standart rules
+````javascript
+    //only for authenticated users
+    app.get(
+        '/', 
+        authGuard.rules.isAuthenticated,     
+        (req, res, next) => {
+            res.end('Hello!');
+        }
+    );
+
+    //only for NOT authenticated users
+    app.get(
+        '/', 
+        authGuard.rules.isNotAuthenticated,     
+        (req, res, next) => {
+            res.end('Hello!');
+        }
+    );
+````

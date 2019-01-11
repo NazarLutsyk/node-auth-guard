@@ -47,7 +47,6 @@ lib.initialize = (config = {principalPath: '', rolesField: ''}) => {
             state.principalRoles = Array.isArray(roles) ? roles : [roles];
             state.principal[config.rolesField] = state.principalRoles;
         }
-        console.log(state);
         next();
     }
 };
@@ -86,5 +85,24 @@ lib.rule = function (rule, ...exclusionRoles) {
         }
     }
 };
+
+lib.rules = {};
+
+lib.rules.isAuthenticated = function (req, res, next) {
+    if (state.principal) {
+        return next();
+    } else {
+        return next(new NodeAuthGuardError('Only for authenticated users', 403))
+    }
+};
+
+lib.rules.isNotAuthenticated = function (req, res, next) {
+    if (!state.principal) {
+        return next();
+    } else {
+        return next(new NodeAuthGuardError('Only for not authenticated users', 403))
+    }
+};
+
 
 module.exports = lib;

@@ -9,8 +9,9 @@
   "repository": "https://github.com/NazarLutsyk/node-auth-guard.git",
   "keywords": [
     "auth",
-    "authorizarion",
+    "authorization",
     "guard",
-    "node-auth-guard"
+    "node-auth-guard",
+    "express-authorization"
   ]
 }

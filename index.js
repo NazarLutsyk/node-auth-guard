@@ -36,13 +36,13 @@ lib.initialize = (config = {principalPath: '', rolesField: ''}) => {
             : libConfig.rolesField;
     return (req, res, next) => {
         try {
-            let principalPathSplitted = config.principalPath.split('.');
+            let principalPathSplitted = libConfig.principalPath.split('.');
             let principalFind = req;
             for (let i = 0; i < principalPathSplitted.length; i++) {
                 const pathElement = principalPathSplitted[i];
                 if (principalFind && principalFind[pathElement]) {
                     principalFind = principalFind[pathElement];
-                }else {
+                } else {
                     principalFind = null;
                 }
             }
@@ -51,6 +51,9 @@ lib.initialize = (config = {principalPath: '', rolesField: ''}) => {
                 let roles = state.principal[config.rolesField];
                 state.principalRoles = Array.isArray(roles) ? roles : [roles];
                 state.principal[config.rolesField] = state.principalRoles;
+            } else {
+                state.principal = null;
+                state.principalRoles = [];
             }
             return next();
         } catch (e) {
